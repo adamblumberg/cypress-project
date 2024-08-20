@@ -4,10 +4,12 @@ describe('Basic Site Navigation', () => {
       cy.url().should('include', 'ecommerce');
     });
   
-    it('should navigate to a different page', () => {
+    it('should click the special button and navigate to specials', () => {
       cy.visit('https://ecommerce-playground.lambdatest.io/');
-      cy.get('a[href="https://ecommerce-playground.lambdatest.io/index.php?route=product/special"]').click();
-      cy.url().should('include', 'special');
+    // targets the hot badge with force true
+    cy.contains('span.badge', 'Hot').parent('a').click({ force: true });
+
+    cy.url().should('include', '/index.php?route=product/special');
     });
   });
   
