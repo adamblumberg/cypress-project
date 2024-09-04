@@ -1,0 +1,37 @@
+describe("Recording 9/4/2024 at 10:29:50 AM", () => {
+  it("tests Recording 9/4/2024 at 10:29:50 AM", () => {
+    cy.viewport(2544, 732);
+    cy.visit("https://ecommerce-playground.lambdatest.io/index.php?route=common/home");
+    cy.get("#entry_217968 div.swiper-slide-active img").click();
+    cy.location("href").should("eq", "https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=20");
+    cy.get("#entry_212408 > div > div:nth-of-type(1) div.active > img").click();
+    cy.location("href").should("eq", "https://ecommerce-playground.lambdatest.io/index.php?route=product/product&path=20&product_id=28");
+    cy.get("#entry_216842 > button").click();
+    cy.get("#notification-box-top div:nth-of-type(1) > a").click();
+    cy.location("href").should("eq", "https://ecommerce-playground.lambdatest.io/index.php?route=checkout/cart");
+    cy.get("#checkout-cart form input").click();
+    cy.get("#checkout-cart form input").type("2");
+    cy.get("form button.btn-primary").click();
+    cy.location("href").should("eq", "https://ecommerce-playground.lambdatest.io/index.php?route=checkout/cart");
+    cy.get("#container a.btn-primary").click();
+    cy.location("href").should("eq", "https://ecommerce-playground.lambdatest.io/index.php?route=checkout/checkout");
+    cy.get("#input-payment-firstname").click();
+    cy.get("#input-payment-firstname").type("test");
+    cy.get("#input-payment-lastname").type("test");
+    cy.get("#input-payment-email").type("test@test.com");
+    cy.get("#input-payment-telephone").type("5555555555");
+    cy.get("#input-payment-address-1").click();
+    cy.get("#payment-address > div:nth-of-type(2)").click();
+    cy.get("#input-payment-address-1").type("867 fake street");
+    cy.get("#input-payment-city").click();
+    cy.get("#payment-address > div:nth-of-type(4) > div").click();
+    cy.get("#input-payment-city").type("made up");
+    cy.get("#input-payment-postcode").click();
+    cy.get("#input-payment-postcode").dblclick();
+    cy.get("#input-payment-postcode").type("12345");
+    cy.get("#button-save").click();
+    cy.location("href").should("eq", "https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/checkout/confirm");
+    cy.get("#button-confirm").click();
+    cy.location("href").should("eq", "https://ecommerce-playground.lambdatest.io/index.php?route=checkout/success");
+  });
+});
