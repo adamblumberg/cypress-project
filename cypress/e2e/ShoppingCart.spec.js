@@ -1,7 +1,7 @@
 describe("Guest Checkout: Shopping Cart Functionality", () => {
   it("Test 1: As a Guest, I can search for and add items to the cart", () => {
     //set the screen size
-    cy.viewport(2544, 732);
+    cy.viewport(2544, 1000);
     //visit the homepage
     cy.visit("https://ecommerce-playground.lambdatest.io/index.php?route=common/home");
     // Click on the search field
@@ -38,7 +38,8 @@ describe("Guest Checkout: Shopping Cart Functionality", () => {
     cy.get('label[for="input-agree"]').click();
     // Click Continue Button
     cy.get('button#button-save').click();
-    cy.get('button#button-confirm');
+    cy.get('button#button-confirm').click();
+    cy.wait(500)
   });
 
 });
