@@ -97,7 +97,7 @@ describe('Search Functionality on eCommerce Playground', () => {
             .click()
             .type('a{enter}');
 
-        // Some sites require minimum characters for search
+        // Verify that the search handles single-character queries by checking for results or an alert message
         cy.url().should('include', 'search=a');
         cy.get('.product-layout, .alert').should('exist');
     });
