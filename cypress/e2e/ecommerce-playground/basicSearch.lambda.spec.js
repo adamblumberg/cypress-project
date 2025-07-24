@@ -65,7 +65,7 @@ describe('Search Functionality on eCommerce Playground', () => {
             .click()
             .type('apple mac{enter}');
 
-        // Update URL assertion to match actual encoding (+ instead of %20)
+        // Verify that the search functionality handles multiple-word queries correctly
         cy.url().should('include', 'search=apple+mac');
         cy.get('.product-layout').should('exist');
     });
