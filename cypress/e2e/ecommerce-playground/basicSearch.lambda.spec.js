@@ -108,7 +108,8 @@ describe('Search Functionality on eCommerce Playground', () => {
             .click()
             .type('  sony  {enter}');
 
-        // Focus on results rather than exact URL format
+        // Verify URL includes trimmed and encoded search query
+        cy.url().should('include', 'search=sony');
         cy.get('.product-thumb').should('have.length.gt', 0);
         cy.get('img[alt="Sony VAIO"]').should('be.visible');
     });
